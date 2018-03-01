@@ -6,7 +6,12 @@ namespace ServiceLocatorSample
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ServiceLocator.Instance.Register<IService, OsakaService>();
+
+            var service = ServiceLocator.Instance.GetService<IService>();
+            Console.WriteLine(service.Greeting());
+            Console.ReadLine();
+
         }
     }
 }
